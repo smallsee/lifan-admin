@@ -1,0 +1,202 @@
+/*重置*/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{margin:0;padding:0;}
+table{border-collapse:collapse;border-spacing:0;}
+fieldset,img{border:0;}
+address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}
+ol,ul{list-style:none;}
+caption,th{text-align:left;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+q:before,q:after{content:'' ;}
+abbr,acronym{border:0;}
+body{color:#666; background-color:#fff;font: 12px/1.5 '微软雅黑',tahoma,arial,'Hiragino Sans GB',宋体,sans-serif;}
+.clearfix:after {visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0;}
+.clearfix {zoom:1;}
+a{text-decoration: none}
+
+
+#scrollToTop .backToTop-xiaohai{
+  background: url("../images/black-cat2.png") no-repeat;
+  background-size: 100%;
+  z-index:2;
+}
+
+/*头部*/
+#lifan-header{
+  border-bottom: 2px solid #70CEF4;
+  width:100%;
+  height:38px;
+}
+
+#lifan-header ul{
+  width: 1200px;
+  height: 38px;
+  margin: 0 auto;
+}
+#lifan-header li{
+  float: left;
+  width:72px;
+  height:38px;
+  text-align: center;
+  line-height: 38px;
+  font-size: 17px;
+  margin-right: 10px;
+}
+
+#lifan-header li:hover{
+  font-weight: bold;
+}
+#lifan-header li a{
+  text-decoration: none;
+  color: black;
+}
+/*头部结束*/
+
+
+.leftUl-xiaohai li{
+  font-size: 16px;
+  color:black
+}
+.leftUl-xiaohai li a{
+  color:black
+}
+#lifan-header .leftUl-xiaohai li:hover{
+  color:black;
+  font-weight: bold;
+}
+#lifan-banner{
+  background: url("../images/banner.png") no-repeat center center;
+  width:100%;
+  height:220px;
+}
+#scrollView{
+  margin: 10px auto;
+}
+.lifan-middle{
+  position: relative;
+  width: 1200px;
+  height: 220px;
+  margin: 0 auto;
+
+}
+.lifan-username{
+  width: 150px;
+  height:100px;
+  position: absolute;
+  bottom: 10px;
+  right: 0px;
+}
+.lifan-username img{
+  width: 100px;
+  height: 100px;
+  border-radius: 53px;
+  border: 3px solid white;
+}
+.scrollXiaohai-firstPic{
+  height: 100%;
+  width:880px;
+  position: relative;
+  float: left;
+  overflow: hidden;
+}
+.scrollXiaohai-firstPic img{
+  transition: transform 1s;
+  transform: scale(1.1,1.1);
+}
+.scrollXiaohai-firstPic:hover img{
+  transform: translate(0,-22px) scale(1.1,1.1);
+}
+
+
+.scrollXiaohai-firstPic-P{
+  width: 100%;
+  height:30px;
+  background-color: rgba(0,0,0,0.5);
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  text-align: center;
+  line-height: 30px;
+  color:white;
+  overflow: hidden;
+  transform: translate(0,30px);
+  transition: transform 1s;
+}
+.scrollXiaohai-firstPic:hover .scrollXiaohai-firstPic-P{
+  transform: translate(0,0);
+}
+
+.scrollXiaohai-li .right{
+
+  width: 315px;
+  height: 100%;
+  float: right;
+}
+.scrollXiaohai-second{
+  height: 49%;
+  width: 100%;
+  margin-bottom: 3%;
+  position: relative;
+  overflow: hidden;
+}
+.scrollXiaohai-second img{
+  transition: transform 1s;
+
+}
+.scrollXiaohai-second:hover img{
+  transform: scale(1.1);
+}
+.scrollXiaohai-second:hover .scrollXiaohai-firstPic-P{
+  transform: translate(0,0);
+}
+.scrollXiaohai-third{
+  height: 49%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.scrollXiaohai-third img{
+  transition: transform 1s;
+
+}
+.scrollXiaohai-third:hover img{
+  transform: scale(1.1);
+}
+.scrollXiaohai-third:hover .scrollXiaohai-firstPic-P{
+  transform: translate(0,0);
+}
+#lifan-nav{
+  border-bottom: 2px solid #70CEF4;;
+  border-top: 2px solid #70CEF4;
+  width:100%;
+  height: 38px;
+}
+#lifan-nav ul{
+  width: 1200px;
+  height: 30px;
+  margin: 4px auto;
+  position: relative;
+}
+#lifan-nav ul .lifan-nav-cur{
+  position:absolute;
+  width:72px;
+  height:30px;
+  background-color:#bff4fe;
+  top:1px;
+  z-index: -2;
+  border-radius: 15px;
+  transition: left ease 0.5s;
+}
+#lifan-nav li{
+  float: left;
+  width:72px;
+  height:30px;
+  text-align: center;
+  line-height: 34px;
+  margin-right: 10px;
+  font-size: 16px;
+
+}
+#lifan-nav li a{
+  text-decoration: none;
+  color: black;
+}

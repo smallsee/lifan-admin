@@ -1,0 +1,184 @@
+#book_list{
+  width:1200px;
+  height: 1500px;
+  margin: 4px auto;
+  border: 1px solid rgba(152,144,144,0.5);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: #edf2f6;
+  margin-bottom: 0;
+}
+#book_list .book_list_user{
+  float: left;
+  background-color: #1b2433;
+  border-top-left-radius: 10px;
+  width: 300px;
+  height: 1500px;
+}
+.book_commit{
+  width:1200px;
+  height: 200px;
+  margin: 0px auto;
+  border: 1px solid rgba(152,144,144,0.5);
+  border-top: 0;
+  background-color: #edf2f6;
+}
+.book_commit .book_commit_user{
+  float: left;
+  background-color: #1b2433;
+  width: 300px;
+  height: 200px;
+}
+.book_commit .book_commit_user div{
+  width: 150px;
+  height: 150px;
+  margin: 20px auto;
+
+}
+.book_commit .book_commit_user img {
+  width: 100%;
+  height: 100%;
+  border-radius: 150px;
+
+}
+.book_commit .book_commit_content{
+  width: 855px;
+  float: right;
+  height: 170px;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: white;
+  border-radius: 10px 10px 0 0;
+
+}
+
+#book_list .book_list_user{
+  float: left;
+  background-color: #1b2433;
+  border-top-left-radius: 10px;
+  width: 300px;
+  height: 1500px;
+}
+
+#book_list .book_list_user div{
+  width: 150px;
+  height: 150px;
+  margin: 20px auto;
+
+}
+#book_list .book_list_user img {
+  width: 100%;
+  height: 100%;
+  border-radius: 150px;
+
+}
+#book_list .book_list_image{
+  width:900px;
+  height: auto;
+  float: left;
+}
+#book_list .book_list_image .book_list_content{
+  width: 855px;
+  height: auto;
+ padding: 10px;
+  background-color: white;
+  float: right;
+  border-radius: 10px 10px 0 0;
+}
+#book_list .book_list_image .book_list_content .book_list_hide{
+  width: 600px;
+  height: 80px;
+  border: 1px dashed black;
+  margin: 0 auto;
+  line-height: 80px;
+  text-align: center;
+}
+#book_list .book_list_image .book_list_content .book_list_hide span{
+  cursor: pointer;
+}
+#book_list .book_list_image .book_list_content img{
+  border: 4px solid #D3EEF5;
+  cursor: pointer;
+}
+
+#book_list .book_list_image .book_list_title{
+  height: 80px;
+  width:880px;
+  border-top-right-radius: 10px;
+  background-color: white;
+  margin-bottom: 20px;
+  padding-left: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 80px;
+}
+
+/**/
+
+
+#G-lightbox-mask{ position: fixed;left:0;top:0;width:100%;height:100%;background-color: #000;opacity: 0.5;
+  z-index:10000;display: none}
+
+#G-lightbox-popup{
+  position: fixed;left:50%;top:0;margin-left: -200px;width:400px;
+  z-index:10001;display: none;
+}
+
+#G-lightbox-popup .lightbox-pic-view{
+  position: relative;border: 5px solid #fff;border-radius: 3px;
+  overflow: hidden;background:#fff url("/web/icon/loading.gif") no-repeat center center;
+}
+
+#G-lightbox-popup .lightbox-pic-view .lightbox-btn{
+  position: absolute;top:0;
+  width:10%;
+  z-index:1;
+  height:100%;
+  background: url("../icon/transparent.png") repeat left top ;
+}
+#G-lightbox-popup .lightbox-pic-view .lightbox-prev-btn{left:0;}
+#G-lightbox-popup .lightbox-pic-view .lightbox-next-btn{right:0;}
+#G-lightbox-popup .lightbox-pic-view .lightbox-prev-btn-show{background: url("../icon/prev.png") no-repeat left center;cursor: pointer}
+#G-lightbox-popup .lightbox-pic-view .lightbox-next-btn-show{background: url("../icon/next.png") no-repeat right center;cursor: pointer}
+#G-lightbox-popup .lightbox-pic-view .lightbox-image{display: block}
+
+#G-lightbox-popup .lightbox-pic-caption{margin:0 5px;position: relative;background-color: rgba(0,0,0,0.5);margin-top:-60px;z-index: 2;background: url("../icon/opacity.png") repeat left top;
+}
+#G-lightbox-popup .lightbox-pic-caption .lightbox-caption-area{
+  padding:10px 5px;color:#fff;
+}
+#G-lightbox-popup .lightbox-pic-caption .lightbox-caption-area .lightbox-of-index{color:#999;}
+#G-lightbox-popup .lightbox-pic-caption .lightbox-close-btn{
+  position: absolute;top:13px;right:13px;width:27px;height:27px;background: url("../icon/close.png") no-repeat center center;
+}
+
+/*百度编辑器*/
+#book_list_mask{
+  position: fixed;left:0;top:0;width:100%;height:100%;background-color:rgba(0,0,0,0.5);
+  z-index:10000;
+}
+#book_list_baidu{
+  width: 800px;
+  height: 400px;
+
+}
+#book_list_mask button{
+  width: 60px;
+  height: 30px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: 220px;
+  margin-left: -80px;
+}
+#book_list_mask button.book_list_baidu_close{
+  margin-left: 40px;
+}
+#book_list_mask .ke-container{
+  position: absolute;
+  left: 50%;
+  top:50%;
+  margin-top: -200px;
+  margin-left: -400px;
+}
+

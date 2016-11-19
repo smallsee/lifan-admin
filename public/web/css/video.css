@@ -1,0 +1,79 @@
+#video-hot{
+  width: 1200px;
+  height: 270px;
+  margin: 10px auto;
+}
+
+#video-hot .video-hot-scrollView-iconLi{
+  border: 1px solid white;
+}
+#video-hot-scrollView{
+  padding-bottom: 10px;
+}
+#video-hot-items{
+  width:730px;
+  height: 270px;
+  float: right;
+}
+
+#video-hot-items .video-hot-item{
+  width:172px;
+  height: 125px;
+  background:url("../images/video_bg.jpg");
+  background-size:100%;
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  position: relative;
+  cursor: pointer;
+}
+.video-hot-item:nth-of-type(4){
+  margin-right: 0;
+}
+.video-hot-item:nth-of-type(8){
+  margin-right: 0;
+}
+
+#video-hot-items .video-hot-item:hover .video-hot-item-mask{
+  opacity: 1;
+}
+#video-hot-items .video-hot-item .video-hot-item-mask{
+  width: 172px;
+  height:125px;
+  background-color: rgba(0,0,0,0.5);
+  position: absolute;
+  left:0;
+  top: 0;
+  z-index: 2;
+  opacity: 0;
+}
+
+
+
+#video-hot-items .video-hot-item  .video-hot-item-icon{
+  width: 34px;
+  height: 40px;
+  font-size: 40px;
+  position: absolute;
+  text-align: center;
+  line-height: 40px;
+  margin-top: -20px;
+  margin-left: -17px;
+  left: 50%;
+  top:50%;
+  color: #F6697A;
+  z-index:3;
+}
+#video-hot-items .video-hot-item  .video-hot-item-title{
+  position: absolute;
+  height: 25px;
+  width: 172px;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.3);
+  line-height: 25px;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis
+}
