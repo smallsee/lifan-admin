@@ -33,6 +33,71 @@
 </div>
 
 
+  <div class="shouldSeeVideo" >
+    <div class="left">
+
+      <div class="top">
+        <a href="#">
+          <i class="icon-music"></i>
+          <span style="font-size: 16px">推荐视频</span>
+          <span style="font-size: 14px">more</span>
+
+        </a>
+        <span style="margin-left: 10px;font-size: 12px;color: black">点击音乐播放按钮会有惊喜，雅蠛蝶~,san</span>
+      </div>
+
+      <div class="bottom">
+        <div class="bottom-item">
+          <div class="img">
+            <a href="#">
+              <img src="{{asset('/web/images/1.jpg')}}" alt="">
+            </a>
+
+          </div>
+          <div class="item-bottom">
+            <p>自行车卡受打击</p>
+            <div class="item-bottom-user">
+              <img src="{{asset('/web/images/2.jpg')}}" alt="">
+              <div class="">10</div>
+              <div class=" icon-comments "></div>
+              <div class="">5</div>
+              <div class="icon-eye-open"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bottom-item"></div>
+        <div class="bottom-item"></div>
+        <div class="bottom-item"></div>
+        <div class="bottom-item"></div>
+        <div class="bottom-item"></div>
+        <div class="bottom-item"></div>
+        <div class="bottom-item"></div>
+      </div>
+    </div>
+    <div class="right">
+      <div class="top">推荐(=·ω·=)~</div>
+
+      <div class="bottom">
+
+        <div class="bottom-item">
+          <div class="img">
+            <img src="{{asset('/web/images/3.jpg')}}" alt="">
+            <span>1</span>
+          </div>
+          <div class="right">
+            <p>sasdsadzxclhsalnxmbckhnksadksandbsandsandjksadljsaldjslajdlsajldjlsajdlsajldiwquoejqwjeiwqjoejowqjiejwqojeowqjejwqoejqwojeqa</p>
+            <div>5453654</div>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+
+
 @endsection
 
 @section('my-js')
