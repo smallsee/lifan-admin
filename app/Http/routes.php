@@ -60,4 +60,9 @@ Route::group(['middleware' => ['web']], function () {
 
 
 
+
+  Route::any('/xiaohaiAdmin', 'Admin\View\AdminController@toAdmin');
+  Route::any('/pc', 'Admin\View\AdminController@toPc');
+  Route::any('/admin/video', 'Admin\View\AdminController@toVideo');
+  Route::any('/admin/video/add', 'Admin\View\AdminController@toVideoAdd');
 });

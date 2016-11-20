@@ -51,6 +51,7 @@ class VideoController extends Controller{
 
     $video = new Video();
     $video->user_id = $username->id;
+    $video->user_thumb = $username->thumb;
     $video->video_title = $video_title;
     $video->video_thumb = $thumb;
     $video->content = $video_content;

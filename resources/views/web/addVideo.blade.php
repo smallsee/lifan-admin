@@ -94,7 +94,7 @@
 
 
     }
-
+    var randNumber = Math.random() * 10000;
     function upload(){
 
       var Cts = $('#xiaohai_video')[0].files[0];
