@@ -14,6 +14,7 @@ use Qiniu\Storage\BucketManager;
 class VideoController extends Controller{
 
   public function addVideo(Request $request){
+
     $username = $request->session()->get('username');
     if (!$username){
       return '用户没有登录无法操作';
@@ -27,7 +28,7 @@ class VideoController extends Controller{
     $video_title =  $request->input('video_title','');
     $video_content =  $request->input('video_content','');
     $thumb =  $request->input('thumb','');
-
+    $state = $request->input('state','0');
 
     if ($tab[0] !=null){
       $tabs  = '';
@@ -49,7 +50,15 @@ class VideoController extends Controller{
       return '请上传封面图';
     }
 
-    $video = new Video();
+
+    $id =  $request->input('id');
+    if (!$id){
+      $video = new Video();
+    }else{
+      $video =Video::where('id',$id)->first();
+
+    }
+
     $video->user_id = $username->id;
     $video->user_thumb = $username->thumb;
     $video->video_title = $video_title;
@@ -57,6 +66,7 @@ class VideoController extends Controller{
     $video->content = $video_content;
     $video->video_url = $video_url;
     $video->tab = $tab;
+    $video->state = $state;
     if (!$video->save()){
       return '存储失败 ';
     }

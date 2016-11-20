@@ -46,8 +46,6 @@ class AdminController extends Controller{
     $bucket = 'book';
 
 
-
-
     foreach ($thumb as $img){
 
       $key = $img;

@@ -1,0 +1,16 @@
+#video_li_page{
+  float: right;
+  margin: 10px auto;
+}
+
+#video_li_page li {
+  float: left;
+  width: 25px;
+  height: 25px;
+  border: 1px solid #ddd;
+  text-align: center;
+  line-height: 25px;
+}
+#video_li_page li.active{
+  background-color: #E5EDF2;
+}
