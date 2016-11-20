@@ -38,6 +38,7 @@
   <script src="{{ asset('/web/lib/layer/layer.js') }}"></script>
   <script src="{{ asset('/web/lib/layer/dialog.js') }}"></script>
   <script src="{{ asset('/web/js/uploadFile.js') }}"></script>
+  <script src="{{ asset('/web/lib/kindeditor/kindeditor.js') }}"></script>
   @yield('my-js')
   </body>
   </html>

@@ -23,7 +23,7 @@
         <dt><i class="Hui-iconfont">&#xe687;</i> 本子管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
         <dd>
           <ul>
-            <li><a _href="bookControl" data-title="本子管理" href="javascript:void(0)">本子管理</a></li>
+            <li><a _href="{{asset('/admin/book')}}" data-title="本子管理" href="javascript:void(0)">本子管理</a></li>
           </ul>
         </dd>
       </dl>

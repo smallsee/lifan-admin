@@ -63,9 +63,16 @@ Route::group(['middleware' => ['web']], function () {
 
   Route::any('/xiaohaiAdmin', 'Admin\View\AdminController@toAdmin');
   Route::any('/pc', 'Admin\View\AdminController@toPc');
+
   Route::any('/admin/video', 'Admin\View\AdminController@toVideo');
   Route::any('/admin/video/add', 'Admin\View\AdminController@toVideoAdd');
   Route::any('/admin/video/edit', 'Admin\View\AdminController@toVideoEdit');
   Route::any('/api/videoState', 'Admin\Service\AdminController@changState');
   Route::any('/api/videoDel', 'Admin\Service\AdminController@videoDel');
+
+  Route::any('/admin/book', 'Admin\View\AdminController@toBook');
+  Route::any('/admin/book/add', 'Admin\View\AdminController@toBookAdd');
+  Route::any('/admin/book/edit', 'Admin\View\AdminController@toBookEdit');
+  Route::any('/api/bookState', 'Admin\Service\AdminController@changBookState');
+  Route::any('/api/bookDel', 'Admin\Service\AdminController@bookDel');
 });

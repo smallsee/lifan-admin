@@ -81,14 +81,13 @@ class BookController extends Controller{
 
 
 
-
-
     return $m3_result->toJson();
   }
 
   public function book(Request $request){
 
     $content_img = $request->session()->get('book_content_img');
+
     if ($content_img){
       $content_imgs  = '';
       foreach ($content_img as $img){
@@ -99,11 +98,6 @@ class BookController extends Controller{
       return '请上传图片';
     }
 
-
-    //    $arr = str_replace(array('/>'),'/>,',$parent_id);
-//    $arr = str_replace(array(' alt="" />','<img src="','"'),'',$arr);
-//    $p =explode(',',$arr);
-//    dd($p);
 
     $username = $request->session()->get('username');
     if (!$username){
@@ -118,6 +112,7 @@ class BookController extends Controller{
     $parent_id =  $request->input('parent_id','');
     $book_title =  $request->input('book_title','');
     $tab =  $request->input('checkArr','');
+    $state =  $request->input('state','0');
 
     if ($tab[0] !=null){
       $tabs  = '';
@@ -139,17 +134,24 @@ class BookController extends Controller{
       return '请上传封面图';
     }
 
-    $book = new Book();
+    $id = $request->input('id');
+    if(!$id){
+      $book = new Book();
+    }else{
+      $book = Book::where('id',$id)->first();
+    }
+
     $book->user_id = $username->id;
     $book->username = $username->username;
     $book->user_thumb = $username->thumb;
-    $book->statue = 1;
+    $book->state = 0;
     $book->book_thumb = $thumb;
     $book->book_list = $parent_id;
     $book->content = $content;
     $book->book_title = $book_title;
     $book->book_content_img = $imgs;
     $book->tab = $tab;
+    $book->state = $state;
     if (!$book->save()){
       return '存储出现问题';
     }

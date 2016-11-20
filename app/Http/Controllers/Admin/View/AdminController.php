@@ -76,4 +76,40 @@ class AdminController extends Controller{
 
     return view('admin/videoEdit')->with('token',$token)->with('video',$data)->with('tab',$tab);
   }
+
+  public function toBook(Request $request)
+  {
+
+    //查找数据
+    $title = $request->input('title','');
+    $tab = $request->input('tab','');
+    $state = $request->input('state','');
+
+    $book = Book::where('book_title','like','%'.$title.'%')->where('tab','like','%'.$tab.'%')->where('state','like','%'.$state.'%')->orderBy('created_at','desc')->paginate(10);
+
+    $num = Book::where('book_title','like','%'.$title.'%')->where('tab','like','%'.$tab.'%')->where('state','like','%'.$state.'%')->count();
+
+    return view('admin/book')->with('books',$book)->with('title',$title)->with('tab',$tab)->with('state',$state)->with('num',$num);
+  }
+
+  public function toBookAdd(Request $request)
+  {
+    $request->session()->put('book_content_img',null);
+
+    return view('admin/bookAdd');
+  }
+
+  public function toBookEdit(Request $request)
+  {
+
+    $id = $request->get('id');
+    $data = Book::where('id',$id)->first();
+
+    $tab = explode(',',$data->tab);
+
+
+    return view('admin/bookEdit')->with('book',$data)->with('tab',$tab);
+  }
+
+
 }
