@@ -25,7 +25,12 @@
 |
 */
 
+Route::group(['middleware' => ['web','user']], function () {
+
+});
+
 Route::group(['middleware' => ['web']], function () {
+
   Route::get('/', 'Web\View\IndexController@toIndex');
   Route::get('/book', 'Web\View\BookController@toBook');
   Route::get('/login', 'Web\View\IndexController@toLogin');
@@ -55,6 +60,7 @@ Route::group(['middleware' => ['web']], function () {
 
 
 
+
   Route::any('/admin/book', 'Web\View\AdminController@book');
   Route::any('/api/book/del', 'Web\View\AdminController@bookDel');
 
@@ -69,10 +75,12 @@ Route::group(['middleware' => ['web']], function () {
   Route::any('/admin/video/edit', 'Admin\View\AdminController@toVideoEdit');
   Route::any('/api/videoState', 'Admin\Service\AdminController@changState');
   Route::any('/api/videoDel', 'Admin\Service\AdminController@videoDel');
+  Route::any('/api/videoHome', 'Admin\Service\AdminController@changHome');
 
   Route::any('/admin/book', 'Admin\View\AdminController@toBook');
   Route::any('/admin/book/add', 'Admin\View\AdminController@toBookAdd');
   Route::any('/admin/book/edit', 'Admin\View\AdminController@toBookEdit');
   Route::any('/api/bookState', 'Admin\Service\AdminController@changBookState');
+  Route::any('/api/bookHome', 'Admin\Service\AdminController@changBookHome');
   Route::any('/api/bookDel', 'Admin\Service\AdminController@bookDel');
 });

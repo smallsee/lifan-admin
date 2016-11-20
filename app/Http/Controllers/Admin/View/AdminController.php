@@ -30,10 +30,13 @@ class AdminController extends Controller{
     $title = $request->input('title','');
     $tab = $request->input('tab','');
     $state = $request->input('state','');
-    $video = Video::where('video_title','like','%'.$title.'%')->where('tab','like','%'.$tab.'%')->where('state','like','%'.$state.'%')->orderBy('created_at','desc')->paginate(10);
-    $num = Video::where('video_title','like','%'.$title.'%')->where('tab','like','%'.$tab.'%')->where('state','like','%'.$state.'%')->count();
+    $home = $request->input('home','');
 
-    return view('admin/video')->with('videos',$video)->with('title',$title)->with('tab',$tab)->with('state',$state)->with('num',$num);
+    $video = Video::where('video_title','like','%'.$title.'%')->where('home','like','%'.$home.'%')->where('tab','like','%'.$tab.'%')->where('state','like','%'.$state.'%')->orderBy('created_at','desc')->paginate(10);
+
+    $num = Video::where('video_title','like','%'.$title.'%')->where('home','like','%'.$home.'%')->where('tab','like','%'.$tab.'%')->where('state','like','%'.$state.'%')->count();
+
+    return view('admin/video')->with('videos',$video)->with('title',$title)->with('tab',$tab)->with('state',$state)->with('num',$num)->with('home',$home);
   }
 
   public function toVideoAdd(Request $request)
@@ -84,12 +87,12 @@ class AdminController extends Controller{
     $title = $request->input('title','');
     $tab = $request->input('tab','');
     $state = $request->input('state','');
+    $home = $request->input('home','');
+    $book = Book::where('book_title','like','%'.$title.'%')->where('home','like','%'.$home.'%')->where('tab','like','%'.$tab.'%')->where('state','like','%'.$state.'%')->orderBy('created_at','desc')->paginate(10);
 
-    $book = Book::where('book_title','like','%'.$title.'%')->where('tab','like','%'.$tab.'%')->where('state','like','%'.$state.'%')->orderBy('created_at','desc')->paginate(10);
+    $num = Book::where('book_title','like','%'.$title.'%')->where('home','like','%'.$home.'%')->where('tab','like','%'.$tab.'%')->where('state','like','%'.$state.'%')->count();
 
-    $num = Book::where('book_title','like','%'.$title.'%')->where('tab','like','%'.$tab.'%')->where('state','like','%'.$state.'%')->count();
-
-    return view('admin/book')->with('books',$book)->with('title',$title)->with('tab',$tab)->with('state',$state)->with('num',$num);
+    return view('admin/book')->with('books',$book)->with('title',$title)->with('tab',$tab)->with('state',$state)->with('num',$num)->with('home',$home);
   }
 
   public function toBookAdd(Request $request)

@@ -7,100 +7,54 @@
   {{--幻灯片--}}
   <div id="scrollView">
     <ul>
+
+      @foreach($big_imgs as $key => $big_img)
       <li>
         <div class="scrollXiaohai-firstPic">
-          <a href="#"><img src="{{asset('web/images/1.jpg')}}" width="100%" height="100%"></a>
+          <a href="{{asset('/book/list?id=')}}{{$big_img->id}}"><img src="{{$big_img->book_thumb}}" width="100%" height="100%"></a>
           <div  class="scrollXiaohai-firstPic-P">
-            sdasidshakbzxcujzhis
+            {{$big_img->book_title}}
           </div>
         </div>
 
         <div class="right">
           <div class="scrollXiaohai-second">
-            <a href="#"><img src="{{asset('web/images/2.jpg')}}" width="100%" height="100%"></a>
+            <a href="{{asset('/book/list?id=')}}{{$small_img[$key]->id}}"><img src="{{$small_img[$key]->book_thumb}}" width="100%" height="100%"></a>
             <div  class="scrollXiaohai-firstPic-P">
-              sdasidshakbzxcujzhis
+              {{$small_img[$key]->book_title}}
             </div>
           </div>
           <div class="scrollXiaohai-third">
-            <a href="#"><img src="{{asset('web/images/3.jpg')}}" width="100%" height="100%"></a>
+            <a href="{{asset('/book/list?id=')}}{{$small_img[$key+3]->id}}"><img src="{{$small_img[$key+3]->book_thumb}}" width="100%" height="100%"></a>
             <div  class="scrollXiaohai-firstPic-P">
-              sdasidshakbzxcujzhis
+              {{$small_img[$key+3]->book_title}}
             </div>
           </div>
         </div>
       </li>
+      @endforeach
 
-      <li>
-        <div class="scrollXiaohai-firstPic">
-          <a href="#"><img src="{{asset('web/images/4.jpg')}}" width="100%" height="100%"></a>
-          <div  class="scrollXiaohai-firstPic-P">
-            sdasidshakbzxcujzhis
-          </div>
-        </div>
 
-        <div class="right">
-          <div class="scrollXiaohai-second">
-            <a href="#"><img src="{{asset('web/images/5.jpg')}}" width="100%" height="100%"></a>
-            <div  class="scrollXiaohai-firstPic-P">
-              sdasidshakbzxcujzhis
-            </div>
-          </div>
-          <div class="scrollXiaohai-third">
-            <a href="#"><img src="{{asset('web/images/6.jpg')}}" width="100%" height="100%"></a>
-            <div  class="scrollXiaohai-firstPic-P">
-              sdasidshakbzxcujzhis
-            </div>
-          </div>
-        </div>
-      </li>
-
-      <li>
-        <div class="scrollXiaohai-firstPic">
-          <a href="#"><img src="{{asset('web/images/7.jpg')}}" width="100%" height="100%"></a>
-          <div  class="scrollXiaohai-firstPic-P">
-            sdasidshakbzxcujzhis
-          </div>
-        </div>
-
-        <div class="right">
-          <div class="scrollXiaohai-second">
-            <a href="#"><img src="{{asset('web/images/8.jpg')}}" width="100%" height="100%"></a>
-            <div  class="scrollXiaohai-firstPic-P">
-              sdasidshakbzxcujzhis
-            </div>
-          </div>
-          <div class="scrollXiaohai-third">
-            <a href="#"><img src="{{asset('web/images/9.jpg')}}" width="100%" height="100%"></a>
-            <div  class="scrollXiaohai-firstPic-P">
-              sdasidshakbzxcujzhis
-            </div>
-          </div>
-        </div>
-      </li>
     </ul>
   </div>
 
   <div class="index-nav-title" style="background: url('{{asset("/web/images/diy_head.png")}}') 40% -3% no-repeat "></div>
   {{--搞定作者--}}
-  <div id="fd-people" style="width:1200px;height: 250px;margin: 0 auto;background-color: red">
+  <div id="fd-people" style="width:1200px;height: 250px;margin: 0 auto">
     <ul style="width: 100%;height: 100%;">
+      @foreach($users as $user)
       <li>
         <div class="fd-people-top">
-          <img src="{{asset('/web/images/2.jpg')}}" alt="" height="125px" width="232px">
-          <img class="fd-people-thumb" src="{{asset('/web/images/1.jpg')}}" alt="" style="">
+          <img src="{{$user->thumb}}" alt="" height="125px" width="232px">
+          <img class="fd-people-thumb" src="{{$user->thumb}}" alt="" style="">
         </div>
-
         <div class="fd-people-bottom">
           <div><b>sdasdadas</b></div>
-          <div>zxczxcsadas</div>
+          <div>{{$user->username}}</div>
         </div>
       </li>
+      @endforeach
 
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
     </ul>
   </div>
 
@@ -110,46 +64,47 @@
   <div id="scroll-author-video">
     <div class="slider-wrapper scroll-author-video-left" style="width: 600px;height: 400px;position: relative;float: left">
       <div id="slider" class="nivoSlider" style="width: 600px;height: 400px">
-        <img src="{{asset('/web/images/1.jpg')}}" alt="" width="100%" height="100%">
-        <img src="{{asset('/web/images/2.jpg')}}" alt="" width="100%" height="100%">
-        <img src="{{asset('/web/images/3.jpg')}}" alt="" width="100%" height="100%">
-        <img src="{{asset('/web/images/4.jpg')}}" alt="" width="100%" height="100%">
-
+        @foreach($home_videos as $home_video)
+          <a href="{{asset('/video_list?id=')}}{{$home_video->id}}">
+        <img src="{{$home_video->video_thumb}}" alt="" width="100%" >
+          </a>
+        @endforeach
       </div>
       <div id="indicatorContainer" ></div>
     </div>
 
     <div class="scroll-author-video-right" style="position: relative;overflow: hidden">
 
-
+      @foreach($home_videos as $home_video)
       <div style="width: 100%;height: 100% ;background-color: white;" class="active scroll-author-video-right-tab">
-        <p>xzsadwqde</p>
+        <p>{{$home_video->video_title}}</p>
         <div class="scroll-author-video-author">
-          <img src="{{asset('/web/images/8.jpg')}}" alt="5">
+
+          <img src="{{$home_video->user_thumb}}" alt="5">
+
           <div class="scroll-author-video-author-icon" >
-            <div><i class="icon-user"></i><span>:sadsadasa</span></div>
-            <div><i class="icon-time"></i><span>:sadsadasa</span></div>
+            <div><i class="icon-user"></i><span>:{{$home_video->id}}</span></div>
+            <div><i class="icon-time"></i><span>:{{$home_video->updated_at}}</span></div>
           </div>
           <div class="scroll-author-video-author-see">
             <span class="icon-eye-open"></span>
             <span class="icon-comment"></span>
             <span class="icon-star"></span>
-            <span>4</span>
-            <span>0</span>
+            <span>{{$home_video->see}}</span>
+            <span>{{$home_video->reply}}</span>
             <span>5</span>
           </div>
         </div>
         <div class="scroll-author-video-author-content">
-zsss
+          {{$home_video->content}}
         </div>
         <div class="scroll-author-video-author-more">
           < 更多 <
         </div>
       </div>
+      @endforeach
 
-      <div style="width: 100%;height: 100%;background-color: red;" class="scroll-author-video-right-tab">2</div>
-      <div style="width: 100%;height: 100%;background-color: gainsboro;" class="scroll-author-video-right-tab">3</div>
-      <div style="width: 100%;height: 100%;background-color: green;" class="scroll-author-video-right-tab">4</div>
+
     </div>
   </div>
 
@@ -157,33 +112,33 @@ zsss
 
   <div id="bette_video" style="margin: 0 auto">
     <ul>
-      <li> <img src="{{asset('/web/images/1.jpg')}}" alt="" width="100%" height="100%">
+      @foreach($good_videos as $good_video)
+      <li> <a href="{{asset('/video_list?id=')}}{{$good_video->id}}">
+          <img src="{{$good_video->video_thumb}}" alt="" width="100%" >
+          </a>
           <div class="bette_video_author">
             <div class="bette_video_author_video">
-              <img src="{{asset('/web/images/1.jpg')}}" alt="" width="100%" height="242px" >
-              <p>zjhcdsadsand,znxczxcxzknsdadzcasdadsadsadsadsahk</p>
+              <img src="{{$good_video->user_thumb}}" alt="" width="100%" height="242px" >
+              <p>{{$good_video->video_title}}</p>
               <div class="bette_video_author_video_name">
-                <div class="left">asdhlnzxncuisdhaljdlasjdjsal</div>
-                <div class="right">10</div>
+                <div class="left">by:{{$good_video->user_id}}</div>
+                <div class="right">{{$good_video->reply}}</div>
                 <div class=" icon-comments right"></div>
-                <div class="right">5</div>
+                <div class="right">{{$good_video->see}}</div>
                 <div class="icon-eye-open right"></div>
 
               </div>
             </div>
             <div class="bette_video_author_content">
-              <div class="bette_video_author_content_tab">MAD</div>
+              <div class="bette_video_author_content_tab">{{$good_video->tab}}</div>
               <div class="bette_video_author_content_content">
-                asdkusadksanknzxkchsalsaldsjaaldjnlmzx,nckznxcnkandjs
-                asdsanzxnckhsjdlas,bnzjxbcasjldjasildsladlksamnl
+                {{$good_video->content}}
               </div>
             </div>
           </div>
       </li>
-      <li> <img src="{{asset('/web/images/2.jpg')}}" alt="" width="100%" height="100%"></li>
-      <li> <img src="{{asset('/web/images/3.jpg')}}" alt="" width="100%" height="100%"></li>
-      <li> <img src="{{asset('/web/images/4.jpg')}}" alt="" width="100%" height="100%"></li>
-      <li> <img src="{{asset('/web/images/5.jpg')}}" alt="" width="100%" height="100%"></li>
+      @endforeach
+
     </ul>
   </div>
 
@@ -191,23 +146,23 @@ zsss
 
   <div id="hot_img">
 
-    <div class="bette_video_author_video">
+    @foreach($hot_imgs as $hot_img)
+    <div class="bette_video_author_video" style="margin-right: 20px">
       <div class="bette_video_author_video_category">图片</div>
-      <div class="bette_video_author_video_mask"></div>
-      <img src="{{asset('/web/images/1.jpg')}}" alt="" width="100%" height="270px" >
+      <a href="{{asset('/book/list?id=')}}{{$hot_img->id}}"><div class="bette_video_author_video_mask"></div></a>
+      <img src="{{$hot_img->book_thumb}}" alt=""  height="270px" >
       <div class="bottom">
-        <p>zjhcdsadsand,znxczxcxzknsdadzcasdadsadsadsadsahk</p>
+        <p>{{$hot_img->book_title}}</p>
         <div class="bette_video_author_video_name">
-          <div class="left">asdhlnzxncuisdhaljdlasjdjsal</div>
-          <div class="right">10</div>
+          <div class="left">by:{{$hot_img->username}}</div>
+          <div class="right">{{$hot_img->reply}}</div>
           <div class=" icon-comments right"></div>
-          <div class="right">5</div>
+          <div class="right">{{$hot_img->see}}</div>
           <div class="icon-eye-open right"></div>
         </div>
       </div>
-
     </div>
-
+    @endforeach
   </div>
 @endsection
 

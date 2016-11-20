@@ -4,9 +4,9 @@
   float: left;
   width: 232px;
   margin-right: 10px;
-  background-color: yellow;
   height: 100%;
   position: relative;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 #fd-people li:nth-of-type(5){
   margin-right: 0;
@@ -91,7 +91,6 @@
 .scroll-author-video-right{
   width: 590px;
   height: 400px;
-  background-color: rebeccapurple;
   float: right;
 }
 .scroll-author-video-right .scroll-author-video-right-tab{
@@ -282,7 +281,7 @@
 
 #hot_img{
   width: 1200px;
-  height: 500px;
+  height: 400px;
   margin: 0 auto;
 }
 

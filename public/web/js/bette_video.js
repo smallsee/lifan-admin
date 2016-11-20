@@ -36,7 +36,7 @@ $("#bette_video").ScrollXiaohai({
   width:1200,        //幻灯片宽度
   height:400,  //   幻灯片高度
   index : 0,		//页面开始的索引
-  duration : 50000,		//自动播放时间
+  duration : 5000,		//自动播放时间
   easing : 500,     //切换速度
   autoPlay : true, //是否自动播放
   btnIcon:false,    //是否有按钮

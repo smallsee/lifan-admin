@@ -16,26 +16,18 @@ class VideoController extends Controller{
 
   public function toVideo(Request $request){
 
-
 //第几页
     $page = 1;
     $username = $request->session()->get('username');
 
     //查找video
-    $video_hot =  Video::orderBy('created_at','desc')->skip(0)->take(8)->get();
 
+    $video_hot = Video::where('state','1')->where('home','1')->orderBy('see','desc')->skip(0)->take(8)->get();
     if (!$video_hot){
       $message = '数据不够请管理员添加';
       return view('web/statue')->with('username',$username)->with('page',$page)->with('message',$message);
     }
 
-    if (!$username){
-      return view('web/video')->with('username',$username)
-        ->with('page',$page)->with('video_hots',$video_hot);
-    }else if ($username->statue != 1){
-      $message = '用户激活后才能进行添加操作';
-      return view('web/statue')->with('username',$username)->with('page',$page)->with('message',$message);
-    }
 
     return view('web/video')->with('username',$username)
                 ->with('page',$page)->with('video_hots',$video_hot);

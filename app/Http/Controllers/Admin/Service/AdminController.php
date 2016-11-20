@@ -29,6 +29,20 @@ class AdminController extends Controller{
     return '1';
   }
 
+  public function changHome(Request $request)
+  {
+    $id = $request->input('id');
+    $state = $request->input('state');
+
+    $data = Video::where('id',$id)->first();
+    $data->home = $state;
+    if (!$data->save()){
+      return '存储失败';
+    }
+
+    return '1';
+  }
+
   public function changBookState(Request $request)
   {
     $id = $request->input('id');
@@ -36,6 +50,20 @@ class AdminController extends Controller{
 
     $data = Book::where('id',$id)->first();
     $data->state = $state;
+    if (!$data->save()){
+      return '存储失败';
+    }
+
+    return '1';
+  }
+
+  public function changBookHome(Request $request)
+  {
+    $id = $request->input('id');
+    $state = $request->input('state');
+
+    $data = Book::where('id',$id)->first();
+    $data->home = $state;
     if (!$data->save()){
       return '存储失败';
     }

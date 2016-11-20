@@ -7,9 +7,11 @@
       <input type="text" onfocus="WdatePicker({maxDate:'#F{$dp.$D(\'logmax\')||\'%y-%M-%d\'}'})" id="logmin" class="input-text Wdate" style="width:120px;">
       -
       <input type="text" onfocus="WdatePicker({minDate:'#F{$dp.$D(\'logmin\')}',maxDate:'%y-%M-%d'})" id="logmax" class="input-text Wdate" style="width:120px;">
-      <input type="text" name="title" id="" placeholder=" 搜索标题" style="width:250px" class="input-text" value="{{$title}}">
-      <input type="text" name="tab" id="" placeholder=" 搜索标签" style="width:250px" class="input-text" value="{{$tab}}">
+      <input type="text" name="title" id="" placeholder=" 搜索标题" style="width:150px" class="input-text" value="{{$title}}">
+      <input type="text" name="tab" id="" placeholder=" 搜索标签" style="width:150px" class="input-text" value="{{$tab}}">
+      <input type="text" name="home" id="" placeholder=" 首页状态" style="width:100px" class="input-text" value="{{$home}}">
       <input type="text" name="state" id="" placeholder=" 审核状态" style="width:100px" class="input-text" value="{{$state}}">
+
       <button onclick="onSelect()" name="" id="" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
     </div>
     <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a class="btn btn-primary radius" onclick="product_add('添加视频','{{asset('/admin/video/add')}}')" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加产品</a></span> <span class="r">共有数据：<strong>{{$num}}</strong> 条</span> </div>
@@ -24,6 +26,7 @@
           <th>描述</th>
           <th width="100">标签</th>
           <th width="100">视频地址</th>
+          <th width="60">是否首页</th>
           <th width="60">发布状态</th>
           <th width="100">操作</th>
         </tr>
@@ -41,11 +44,22 @@
           <td class="text-l">{{$video->content}}</td>
           <td class="text-l">{{$video->tab}}</td>
           <td>{{$video->video_url}}</td>
+
+          @if( $video->home == '1')
+            <td style="cursor: pointer" class="td-status"><span class="label label-success radius" onclick="changeHome('{{$video->id}}','0')">首页</span></td>
+          @else
+            <td style="cursor: pointer" class="td-status"><span class="label label-default radius" onclick="changeHome('{{$video->id}}','1')">正常</span></td>
+          @endif
+
+
           @if( $video->state == '1')
             <td style="cursor: pointer" class="td-status"><span class="label label-success radius" onclick="changeState('{{$video->id}}','0')">已发布</span></td>
           @else
             <td style="cursor: pointer" class="td-status"><span class="label label-danger radius" onclick="changeState('{{$video->id}}','1')">审核</span></td>
           @endif
+
+
+
           <td class="td-manage">
             <a onclick="product_add('预览','{{asset('/video_list?id=')}}{{$video->id}}')" style="text-decoration:none" onClick="" href="javascript:;" title="下架"><i class="Hui-iconfont">&#xe695;</i></a>
             <a style="text-decoration:none" class="ml-5" onclick="product_add('编辑视频','{{asset('/admin/video/edit?id=')}}{{$video->id}}')" href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a>
@@ -57,7 +71,7 @@
     </div>
 
     <div id="video_li_page">
-      {!! $videos->appends(['tab' => $tab,'title'=>$title,'state'=>$state])->links() !!}
+      {!! $videos->appends(['tab' => $tab,'title'=>$title,'state'=>$state,'home'=>$home])->links() !!}
     </div>
 
   </div>
@@ -70,8 +84,9 @@
       var tab = $('input[name=tab]').val();
       var title = $('input[name=title]').val();
       var state = $('input[name=state]').val();
+      var home = $('input[name=home]').val();
 
-      var url ="{{asset('/admin/video?title=')}}"+title+"&tab="+tab+"&state="+state
+      var url ="{{asset('/admin/video?title=')}}"+title+"&tab="+tab+"&state="+state+"&home="+home;
       var index = layer.open({
         type: 2,
         title:false,
@@ -95,6 +110,38 @@
 
               if(data == '1'){
                 dialog.success('更改状态成功',"{{asset('/admin/video')}}")
+              }else{
+                dialog.error(data);
+              }
+
+            },
+            error: function(xhr, status, error) {
+              console.log(xhr);
+              console.log(status);
+              console.log(error);
+            }
+          });
+
+        }
+      })
+
+    }
+
+    function changeHome(id,state){
+      layer.open({
+        content: '是否改变首页状态',
+        icon: 4,
+        btn: ['是', '否'],
+        yes: function () {
+          $.ajax({
+            type: "POST",
+            url: "{{asset('/api/videoHome')}}",
+            cache: false,
+            data: { id:id,state:state,_token: "{{csrf_token()}}"},
+            success: function(data) {
+
+              if(data == '1'){
+                dialog.success('设置上首页',"{{asset('/admin/video')}}")
               }else{
                 dialog.error(data);
               }

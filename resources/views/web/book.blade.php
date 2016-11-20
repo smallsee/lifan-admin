@@ -7,7 +7,7 @@
 
   <div class="book-box box-clone">
     <div class="book-pic" style="width: 210px; opacity: 1;z-index: 1000">
-      <a href="{{asset('/addBook')}}"><div class="book-newPost">发新帖</div></a>
+      <a href="{{asset('/admin/book/add')}}"><div class="book-newPost">发新帖</div></a>
 
       <div class="book-category" style="height: 110px;">
         <div>分类:</div>
